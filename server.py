@@ -30,24 +30,6 @@ def log(message: str):
         print(msg, file=log)
         print(msg)
 
-    try:
-        pass
-
-    #     def task():
-    #         requests.post(
-    #             "http://localhost:3600/log",
-    #             json={
-    #                 "program": "Repo Update",
-    #                 "message": message,
-    #                 "level": "INFO",
-    #             },
-    #         )
-
-    #     t = Thread(target=task)
-    #     t.start()
-    except Exception:
-        pass
-
 
 def is_master_branch(ref: str):
     return ref in ["refs/heads/main", "refs/heads/master"]

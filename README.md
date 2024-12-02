@@ -12,6 +12,7 @@ restart.sh is a script to be used as
 
 
 In the repos variable, you put in as many repos as you like. 
+```
 repos = [
     {
         "name": "",  # Name of the repository
@@ -22,3 +23,4 @@ repos = [
     },
     # Add more repositories here
 ]
+```
