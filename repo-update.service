@@ -1,0 +1,23 @@
+[Service]
+# User and group under which the service will run
+User=ec2-user
+Group=ec2-user
+
+# Set environment variables
+Environment="REPO_DIR=YOUR_PATH_TO_REPO"
+Environment="PORT=YOUR_PORT_NUMBER"
+
+# The working directory of the service
+WorkingDirectory=${REPO_DIR}
+
+# The command to start the service using Gunicorn
+ExecStart=${REPO_DIR}/.venv/bin/gunicorn -w 4 -b 0.0.0.0:${PORT} server:app
+
+# Ensure the service restarts automatically if it fails
+Restart=always
+
+# Set the environment variables if needed (add more as necessary)
+Environment="PATH=${REPO_DIR}/.venv/bin:/usr/bin:/usr/local/bin"
+
+[Install]
+WantedBy=multi-user.target
